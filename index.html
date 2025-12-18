@@ -144,9 +144,9 @@
         gtag("config", GA, { anonymize_ip:true });
       }
 
-      // Optional: allow "Privacy settings" link to re-open consent choice
+      // allow footer/settings links to re-open consent choice
       window.__openPrivacySettings = function () {
-        try { localStorage.removeItem(KEY); } catch (e) {}
+        try { localStorage.removeItem(KEY); } catch(e) {}
         window.location.reload();
       };
 
@@ -154,7 +154,7 @@
         const consent = localStorage.getItem(KEY);
         const overlay = document.getElementById("consent-overlay");
 
-        // 🔓 ALWAYS unlock by default
+        // 🔓 ALWAYS unlock body by default
         document.body.classList.remove("consent-locked");
 
         if (consent === "accepted") { loadGA(); return; }
@@ -205,7 +205,7 @@
 
 <div class="page">
 
-  <!-- HEADER (MATCHES YOUR DNATEST.BIO TEMPLATE) -->
+  <!-- HEADER (MATCHES DNATEST.BIO TEMPLATE) -->
   <header>
     <div class="brand">
       <div class="brand-name">TestKit.bio</div>
@@ -228,8 +228,8 @@
       <div>
         <h1 id="hero-heading">At-home test kits: convenient screening, not magic.</h1>
         <p class="hero-subtitle">
-          Home kits can be useful for convenience and early screening, but results always depend on method,
-          sampling quality, and appropriate follow-up. This page explains the landscape and points you to
+          Home kits can be useful for convenience and early screening, but results depend on method,
+          sampling quality, and appropriate follow-up. This page maps the main categories and points you to
           comparisons via Genectics.com.
         </p>
 
@@ -274,7 +274,7 @@
             <li>Not a substitute for evaluation if symptoms or concerns persist.</li>
           </ul>
           <p class="inline-note">
-            See related comparisons/context:
+            See related context:
             <a href="https://genectics.com/?ref=testkit.bio-fertility" target="_blank" rel="noopener">Genectics.com</a>.
           </p>
         </div>
@@ -319,57 +319,9 @@
       </ol>
 
       <p class="inline-note">
-        If you’re primarily comparing DNA kits, start here:
+        For DNA-focused comparisons, start here:
         <a href="https://genectics.com/?ref=testkit.bio-steps" target="_blank" rel="noopener">Genectics.com</a>.
       </p>
-    </section>
-
-    <!-- OPTIONAL DNA PROVIDER CONTEXT (CONSISTENT WITH YOUR NETWORK PAGES) -->
-    <section id="dna-providers" class="card">
-      <h2>DNA provider examples (when they make sense)</h2>
-      <p>
-        If your main interest is DNA testing, two common decision paths are: (1) ancestry/relatives first, or
-        (2) broad health &amp; wellness-style reporting. Use Genectics.com to compare providers side by side.
-      </p>
-
-      <div class="grid grid-2">
-        <div class="card-ghost">
-          <h3>LivingDNA</h3>
-          <p>
-            Often relevant if you care about detailed UK/Irish/European regional ancestry mapping rather than maximum match volume.
-          </p>
-          <div class="hero-actions">
-            <a href="https://www.anrdoezrs.net/click-101587814-15734443"
-               class="btn-primary" target="_blank" rel="nofollow sponsored noopener">
-              Visit LivingDNA
-            </a>
-            <a href="https://genectics.com/?ref=testkit.bio-livingdna"
-               class="btn-secondary" target="_blank" rel="noopener">
-              See in comparison context
-            </a>
-          </div>
-        </div>
-
-        <div class="card-ghost">
-          <h3>CircleDNA</h3>
-          <p>
-            Positioned as a premium option for broad health and wellness-style reporting (informational only, not diagnostic).
-          </p>
-          <div class="hero-actions">
-            <a href="https://www.awin1.com/cread.php?awinmid=81635&awinaffid=2660218"
-               class="btn-primary" target="_blank" rel="nofollow sponsored noopener">
-              View CircleDNA
-            </a>
-            <a href="https://genectics.com/?ref=testkit.bio-circledna"
-               class="btn-secondary" target="_blank" rel="noopener">
-              Compare on Genectics.com
-            </a>
-          </div>
-          <p class="inline-note">
-            The CircleDNA link above may be an affiliate link. Availability and report scope can vary by country.
-          </p>
-        </div>
-      </div>
     </section>
 
     <!-- PRIVACY -->
@@ -434,12 +386,12 @@
 
   </main>
 
-  <!-- ✅ YOUR STANDARD NETWORK FOOTER -->
+  <!-- ✅ FOOTER (TESTKIT – NO RETINOL TEXT) -->
   <footer class="site-footer">
     <div class="footer-main">
-      <span>© <span id="year"></span> Retinol.bio – Evidence-based retinol education.</span>
-      <span>Operated by ronarn AS, Norway. Independent information site with links to Retynol.com.</span>
-      <span>Contact: <a href="mailto:info@retinol.bio">info@retinol.bio</a></span>
+      <span>© <span id="year"></span> TestKit.bio – Independent at-home testing education.</span>
+      <span>Operated by ronarn AS, Norway. Independent information site with links to Genectics.com.</span>
+      <span>Contact: <a href="mailto:info@testkit.bio">info@testkit.bio</a></span>
       <span>Business address: Pb. 1010 Lillestrøm Syd, 2012 Lillestrøm, Norway</span>
     </div>
 
@@ -450,7 +402,8 @@
         <a href="https://disclaimer.bio" target="_blank" rel="noopener">Medical &amp; Affiliate Disclaimer</a> ·
         <a href="https://disclosure.bio" target="_blank" rel="noopener">Affiliate Disclosure</a> ·
         <a href="https://policies.bio" target="_blank" rel="noopener">Policies</a> ·
-        <a href="https://transparency.bio" target="_blank" rel="noopener">Transparency</a>
+        <a href="https://transparency.bio" target="_blank" rel="noopener">Transparency</a> ·
+        <a href="#" onclick="window.__openPrivacySettings(); return false;">Privacy settings</a>
       </span>
     </nav>
 
@@ -466,7 +419,7 @@
         <a href="https://audits.bio" target="_blank" rel="noopener">Audits</a> ·
         <a href="https://verification.bio" target="_blank" rel="noopener">Verification</a> ·
         <a href="https://indexing.bio" target="_blank" rel="noopener">Indexing</a> ·
-        <a href="https://retynol.com/" target="_blank" rel="noopener">Retynol.com – Product comparison</a>
+        <a href="https://genectics.com/?ref=testkit.bio-footer" target="_blank" rel="noopener">Genectics.com</a>
       </span>
     </nav>
   </footer>
